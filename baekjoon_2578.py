@@ -18,9 +18,9 @@ def bingo(list1, list2):
                 x_list[j].append(result_list[j][k])
                 y_list[j].append(result_list[k][j])
                 if j == 0:
-                    d_list[j].append(result_list[k][j])
+                    d_list[j].append(result_list[k][k])
                 elif j == 1:
-                    d_list[j].append(result_list[k][j])
+                    d_list[j].append(result_list[4-k][k])
         for j in range(5):
             n_sum = 0
             for k in x_list[j]:
