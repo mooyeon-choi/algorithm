@@ -1,6 +1,6 @@
 for _ in range(10):
    tc = input()
-   # arr = [list(map(int, input().split())) for _ in range(100)] # => 2차원 리스트
+   # arr = [linkedlist(map(int, input().split())) for _ in range(100)] # => 2차원 리스트
    arr = []
    for _ in range(100):
        arr += list(map(int, input().split()))
