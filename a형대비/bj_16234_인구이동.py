@@ -48,5 +48,8 @@ while roof:
                     result.append(country[u][v])
                 for u, v in n_list:
                     country[u][v] = sum(result)//len(result)
+    for i in range(len(country)):
+        print(country[i])
+    print('-----------------------------------')
     answer += 1
 print(answer - 1)

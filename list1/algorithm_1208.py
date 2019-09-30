@@ -1,4 +1,4 @@
-# tc 1~10 까지 반복
+# tc 1~191001 까지 반복
 for tc in range(1, 11):
     # 입력값 받아오기
     n = int(input())
