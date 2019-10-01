@@ -4,7 +4,9 @@ for tc in range(1, t + 1):
     numbers = list(map(int, input().split()))
     number = set([0])
     for i in range(n):
+        num = set()
         for j in number:
-            number.add(j+numbers[i])
+            num.add(j+numbers[i])
+        number = number | num
     print(number)
     print('#{} {}'.format(tc, len(number)))
