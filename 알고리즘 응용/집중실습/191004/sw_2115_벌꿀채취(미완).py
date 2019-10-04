@@ -18,4 +18,5 @@ for tc in range(1, t + 1):
                     if num > maxsum:
                         maxsum = num
             memo[i][j] = maxsum
-    print(memo)
+    maxvalue = max(memo)
+    print(maxvalue)
