@@ -13,7 +13,6 @@ def inorder(v):
 
 def post(v):
     if v == 0: return
-
     post(L[v])
     post(R[v])
     print(v, end=' ')
