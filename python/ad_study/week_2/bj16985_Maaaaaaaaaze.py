@@ -1,5 +1,6 @@
 import collections as col
-
+import sys
+sys.setrecursionlimit(1000000)
 
 def per_depth(nums):
     if len(nums) >= 5:
@@ -21,9 +22,11 @@ def permutation(nums):
 
 def BFS(k, z):
     global answer
+    if answer == 12:
+        return
     num = perlist[k]
     turns = perdep[z]
-    if not maze[num[-1]][turns[4]][4][4]:
+    if not maze[num[4]][turns[4]][4][4]:
         return
     que = col.deque()
     visit = []
@@ -32,19 +35,17 @@ def BFS(k, z):
         visit.append((0, 0, 0))
     else:
         return
-    cnt = 0
+    cnt = 1
     while que:
-        if cnt + 1 >= answer:
+        if cnt >= answer:
             return
         for _ in range(len(que)):
             depth, u, v = que.popleft()
             for i in range(6):
                 if 0 <= depth + dirs[i][0] < 5 and 0 <= u + dirs[i][1] < 5 and 0 <= v + dirs[i][2] < 5:
-                    if maze[num[depth + dirs[i][0]]][turns[depth]][u + dirs[i][1]][v + dirs[i][2]]:
+                    if maze[num[depth + dirs[i][0]]][turns[depth + dirs[i][0]]][u + dirs[i][1]][v + dirs[i][2]]:
                         if (depth + dirs[i][0], u + dirs[i][1], v + dirs[i][2]) == (4, 4, 4):
-                            answer = cnt + 1
-                            print(answer)
-                            print(depth + dirs[i][0], u + dirs[i][1], v + dirs[i][2])
+                            answer = cnt
                             return
                         elif (depth + dirs[i][0], u + dirs[i][1], v + dirs[i][2]) not in visit:
                             que.append((depth + dirs[i][0], u + dirs[i][1], v + dirs[i][2]))
@@ -73,12 +74,6 @@ for num in range(1, 6):
         maze[str(num)].append(p3)
 permutation('')
 per_depth([])
-print(len(perdep))
-# for num in range(1, 6):
-#     for i in range(4):
-#         for j in range(5):
-#             print(maze[str(num)][i][j])
-#         print('-------------------')
 
 for i in range(60):
     for j in range(len(perdep)):
