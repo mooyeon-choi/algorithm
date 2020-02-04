@@ -33,3 +33,4 @@ board = [list(input()) for _ in range(R)]
 visit = [[0]*C for _ in range(R)]
 BFS()
 print(answer)
+ 
