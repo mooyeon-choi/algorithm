@@ -15,7 +15,8 @@ for _ in range(M):
         if robots[num][2] == 'E':
             for __ in range(cnt):
                 robots[num][1] += 1
-                if board[robots[num][0]][robots[num][1]]
+                if board[robots[num][0]][robots[num][1]]:
+                    
         elif robots[num][2] == 'S':
             pass
         elif robots[num][2] == 'W':
