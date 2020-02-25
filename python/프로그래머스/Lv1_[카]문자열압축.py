@@ -6,16 +6,15 @@ def solution(s):
         used = 0
         for j in range(i, len(s), i):
             if before == s[j:j+i]:
-                if not used:
-                    length += 1
-                    used = 1
+                used += 1
             else:
-                if j+i >= len(s):
-                    length += len(s) - j
-                else:
-                    length += i
-                    before = s[j:j+i]
-                    used = 0
+                if used:
+                    length += len(str(used+1))
+                length += len(s[j:j+i])
+                before = s[j:j+i]
+                used = 0
+        if used:
+            length += len(str(used+1))
         if answer > length:
             answer = length
     return answer
