@@ -1,5 +1,7 @@
 def back(cnt, numsum):
     global answer
+    if numsum <= answer:
+        return
     if cnt == N:
         if answer < numsum:
             answer = numsum
