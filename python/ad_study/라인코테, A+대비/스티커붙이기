@@ -1,17 +1,44 @@
-from pprint import pprint
+def find(idx):
+    for i in range(N - len(stickers[idx]) + 1):
+        for j in range(M - len(stickers[idx][0]) + 1):
+            if check(i, j, idx): return 1
+    return 0
+
+
+def check(i, j, idx):
+    for x in range(len(stickers[idx])):
+        for y in range(len(stickers[idx][0])):
+            if board[i + x][j + y] and stickers[idx][x][y]:
+                return 0
+    else:
+        stick(i, j, idx)
+        return 1
+
+
+def stick(i, j, idx):
+    for x in range(len(stickers[idx])):
+        for y in range(len(stickers[idx][0])):
+            if stickers[idx][x][y]: board[i+x][j+y] = 1
+
+
 def turn(idx):
-    m, v = len(stickers[idx][0]), len(stickers[idx])
+    m, v = len(stickers[idx]), len(stickers[idx][0])
     next = [[stickers[idx][m - i - 1][j] for i in range(m)] for j in range(v)]
-    pprint(next)
     stickers[idx] = next
+
 
 N, M, K = map(int, input().split())
 stickers = []
+board = [[0]*M for _ in range(N)]
+
 for _ in range(K):
     R, C = map(int, input().split())
     sticker = [list(map(int, input().split())) for __ in range(R)]
     stickers.append(sticker)
 
-pprint(stickers[0])
-turn(0)
-pprint(stickers[0])
+for i in range(K):
+    for _ in range(4):
+        if find(i): break
+        turn(i)
+
+print(sum(map(lambda x: sum(x), board)))
