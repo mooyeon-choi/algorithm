@@ -1,6 +1,0 @@
-N, M, K = map(int, input().split())
-stickers = []
-for _ in range(K):
-    R, C = map(int, input().split())
-    sticker = [list(map(int, input().split())) for __ in range(R)]
-    stickers.append(sticker)

@@ -1,0 +1,17 @@
+from pprint import pprint
+def turn(idx):
+    m, v = len(stickers[idx][0]), len(stickers[idx])
+    next = [[stickers[idx][m - i - 1][j] for i in range(m)] for j in range(v)]
+    pprint(next)
+    stickers[idx] = next
+
+N, M, K = map(int, input().split())
+stickers = []
+for _ in range(K):
+    R, C = map(int, input().split())
+    sticker = [list(map(int, input().split())) for __ in range(R)]
+    stickers.append(sticker)
+
+pprint(stickers[0])
+turn(0)
+pprint(stickers[0])
